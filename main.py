@@ -66,5 +66,5 @@ def validate(req: ValReq):
     p_ok = cfg["pin"] is None or (req.pin and len(req.pin) == cfg["pin"] and req.pin.isdigit())
     return {"valid": v_ok and p_ok, "accuracy": 100.0 if v_ok and p_ok else 0.0}
 
-if name == "__main__":
+if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000)
